@@ -1,0 +1,27 @@
+---
+- name: reload httpd
+  service:
+    name: httpd
+    state: reloaded
+- name: reload pf rules
+  command: pfctl -f /etc/pf.conf
+- name: reload relayd
+  service:
+    name: relayd
+    state: reloaded
+- name: reload sshd
+  service:
+    name: sshd
+    state: reloaded
+- name: reload nsd
+  service:
+    name: nsd
+    state: reloaded
+- name: restart ntpd
+  service:
+    name: ntpd
+    state: restarted
+- name: reload vmd
+  service:
+    name: vmd
+    state: reloaded
